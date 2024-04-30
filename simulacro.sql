@@ -33,4 +33,11 @@ FROM rental
 WHERE return_date IS NOT NULL
 
 Ejercicio 8
+SELECT f.title, count(a.actor_id) AS actor_count
+FROM film f 
+JOIN film_actor a ON a.film_id = f.film_id
+GROUP BY a.actor_id
+ORDER BY actor_count ASC
+LIMIT 10
 
+Ejercicio 9
