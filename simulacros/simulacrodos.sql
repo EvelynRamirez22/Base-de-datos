@@ -40,6 +40,9 @@ WHERE salario >=9000 AND salario <=17000
 ORDER BY salario ASC
 
 Ejercicio 6
+/*HAVING se utiliza para filtrar grupos de registros creados por la cláusula GROUP BY .
+WHERE filtra registros individuales mientras que HAVING filtra grupos*/
+
 //Mostrar la cantidad total de países que hay por región, descartando los que tengan 5 o menos.
 SELECT COUNT(c.country_name), r.region_name 
 FROM countries c 
@@ -62,6 +65,8 @@ ORDER BY cant_hijos DESC
 LIMIT 5;
 
 Ejercicio 9
+/*limit recibe un argumento numérico positivo que indica el número máximo de 
+registros a retornar; la cláusula offset indica el número del primer registro a retornar.*/
 // Mostrar cual es el empleado con el tercer mejor sueldo.
 SELECT first_name AS nombre, last_name AS apellido, salary AS salario
 FROM employees
@@ -76,3 +81,7 @@ FROM
 JOIN dependents d ON e.employee_id = d.employee_id
 GROUP BY e.employee_id
 ORDER BY cant_hijos DESC)
+
+
+/*el left join muestra info con null, y el join normal lo ignora y no muestra los elementos
+que estan vacios.*/
