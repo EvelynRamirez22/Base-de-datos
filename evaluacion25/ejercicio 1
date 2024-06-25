@@ -1,0 +1,10 @@
+/*Se necesita saber cuántos empleados hay en cada departamento y cuanto
+ gasta en salarios cada uno, para esto nos solicita que creemos un listado
+de tres columnas donde indiquemos el nombre del departamento, 
+la cantidad de empleados y el gasto total en sueldos de empleados por 
+departamento.*/
+
+SELECT d.department_name AS nombre_departamento, count(e.employee_id) AS cantidad_empleados, sum(e.salary) AS gasto_salario_total
+FROM employees e 
+JOIN departments d ON e.department_id = d.department_id 
+GROUP BY nombre_departamento 
