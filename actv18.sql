@@ -50,3 +50,73 @@ Middle East (5 y 6) a la nueva región */
 UPDATE countries 
 SET region_id = 7
 WHERE country_id in (SELECT country_id FROM countries WHERE region_id in (5,6))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DELETE FROM trabajadores
+WHERE (tipo_trabajo, salario) IN (
+    SELECT t1.tipo_trabajo, t1.salario
+    FROM trabajadores t1
+    JOIN (
+        SELECT tipo_trabajo, MAX(salario) AS salario_maximo
+        FROM trabajadores
+        GROUP BY tipo_trabajo
+    ) t2 ON t1.tipo_trabajo = t2.tipo_trabajo AND t1.salario > t2.salario_maximo
+);
+
+
+
+
